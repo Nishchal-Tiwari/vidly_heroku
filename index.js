@@ -17,6 +17,10 @@ app.get('/ask', (req, res) => {
     s.save()
     res.send("hello ! " + req.query.name + " Your query has been recorded")
 })
-
+app.get('/aski:id', (req, res) => {
+    const s = new rr({ name: req.paras['id'] })
+    s.save()
+    res.send("hello ! " + name: req.paras['id'] + " Your query has been recorded")
+})
 connect()
 app.listen(process.env.PORT || '3000', () => console.log("started"))
