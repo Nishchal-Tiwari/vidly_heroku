@@ -7,7 +7,7 @@ function connect() {
 }
 app.get('/', (req, res) => res.send("helllloooo"))
 app.get("/sayhi", (req, res) => res.send(" hi"))
-app.get('/ask', () => {
+app.get('/ask', (req, res) => {
     res.send("hello ! " + req.query.name + " Your query has been recorded")
 })
 const schma = new mongo.Schema({
