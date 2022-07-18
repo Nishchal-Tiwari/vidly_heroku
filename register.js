@@ -3,11 +3,8 @@ const Router = express.Router();
 const table = require('./register_schema')
 const hasher = require('bcrypt')
 const mailer = require('./mailer')
-const ip = require('ip')
 Router.route('/').post(
     async(req, res) => {
-
-
         console.log(req.body)
         const x = Math.floor((Math.random() * 1000000) + 1);
         // save data to mongo db
@@ -19,7 +16,7 @@ Router.route('/').post(
                 otp: x
             })
 
-            const link = '<a href="http://' + ip + ':3000/register/verify?id=' + req.body.id + '&otp=' + x + '">Verify your mail</a>'
+            const link = '<a href="http://delta-xpr-app.herokuapp.com:3000/register/verify?id=' + req.body.id + '&otp=' + x + '">Verify your mail</a>'
 
             console.log(link)
             const result = await data.save()
