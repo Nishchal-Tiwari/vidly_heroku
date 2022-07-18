@@ -28,7 +28,7 @@ app.use('/login', login)
 app.get("/sayhi", (req, res) => res.send("hi"))
 app.get('/logout', (r, rs) => {
     r.session.destroy()
-    rs.redirect("https://delta-xpr-app.herokuapp.com/login.html")
+    rs.redirect("https://delta-xpr-app.herokuapp.com")
 })
 
 
