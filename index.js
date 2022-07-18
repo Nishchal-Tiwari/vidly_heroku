@@ -11,6 +11,7 @@ const session = require('express-session')
 
 
 //middleware
+app.use(express.static("public"));
 app.use(parser())
 con_to_db()
 app.use(express.json())
@@ -22,7 +23,7 @@ app.use('/register', register)
 app.use('/login', login)
 
 
-app.get('/', (req, res) => res.send("helllloooo"))
+
 app.get("/sayhi", (req, res) => res.send(" hi"))
 
 
