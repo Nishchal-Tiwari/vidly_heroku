@@ -1,26 +1,33 @@
 const mongo = require('mongoose');
 const express = require('express')
 const app = express();
+const register = require('./register')
+const login = require('./login');
+const parser = require('cookie-parser');
+const db_connect = require('./db_connect');
+const con_to_db = require('./db_connect')
+const ip = require("ip");
+const session = require('express-session')
 
-function connect() {
-    mongo.connect("mongodb+srv://messenger:Project%40123@cluster0.10fn5ry.mongodb.net/?retryWrites=true&w=majority").then(console.log("Sucessfully ! connected to database")).catch(err => console.log(err))
-}
+
+//middleware
+app.use(parser())
+con_to_db()
+app.use(express.json())
+console.log(ip.address());
+app.use(session({ key: "uid", secret: "0xC345$%^&ewfwfwaae#$%^&*SDFGHJKNBVCFDRGTHJM", resave: false, saveUninitialized: true, }))
+
+
+app.use('/register', register)
+app.use('/login', login)
+
+
 app.get('/', (req, res) => res.send("helllloooo"))
 app.get("/sayhi", (req, res) => res.send(" hi"))
 
-const schma = new mongo.Schema({
-    name: String
-})
-const rr = mongo.model('vids', schma)
-app.get('/ask', (req, res) => {
-    const s = new rr({ name: req.query.name })
-    s.save()
-    res.send("hello ! " + req.query.name + " Your query has been recorded")
-})
-app.get('/aski/:id', (req, res) => {
-    const s = new rr({ name: req.params['id'] })
-    s.save()
-    res.send("hello ! " + req.params['id'] + " Your query has been recorded")
-})
-connect()
+
+
+
+
+
 app.listen(process.env.PORT || '3000', () => console.log("started"))
