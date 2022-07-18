@@ -10,6 +10,7 @@ const ip = require("ip");
 const session = require('express-session')
 
 
+
 //middleware
 app.use(express.static("public"));
 app.use(parser())
@@ -24,7 +25,7 @@ app.use('/login', login)
 
 
 
-app.get("/sayhi", (req, res) => res.send(" hi"))
+app.get("/sayhi", (req, res) => res.send("hi"))
 
 
 
