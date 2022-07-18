@@ -43,6 +43,7 @@
                 credentials: "include"
             }).then(s => s.text()).then(
                 res => {
+                    console.log(res)
                     if (res == "logged") {
                         console.log(res)
                         window.location.replace('https://delta-xpr-app.herokuapp.com/sayhi')
@@ -67,7 +68,7 @@
             }
             console.log(data)
             console.log(JSON.stringify(data))
-            fetch('http://10.61.74.57:3000/login', {
+            fetch('https://delta-xpr-app.herokuapp.com/login', {
                 "method": "POST",
                 "body": JSON.stringify(data),
                 credentials: "include",
@@ -81,18 +82,18 @@
 
 
                 if (s == "sucess") {
-                    window.location.replace("http://10.61.74.57:5500/lr");
+                    window.location.replace("https://delta-xpr-app.herokuapp.com/sayhi");
                 } else if (s == "fake") {
                     formm.style.display = 'none'
 
                     ele.innerText = "Wrong password ! Please try again."
-                    ele.innerHTML += '<a href="http://10.61.74.57:5500/login.html"><button>Try again</button></a>'
+                    ele.innerHTML += '<a href="https://delta-xpr-app.herokuapp.com"><button>Try again</button></a>'
 
                 } else {
                     formm.style.display = 'none'
 
                     ele.innerText = "User does not exist ! Register"
-                    ele.innerHTML += '<a href="http://10.61.74.57:5500/register.html"><button>Register</button></a>'
+                    ele.innerHTML += '<a href="https://delta-xpr-app.herokuapp.com/register.html"><button>Register</button></a>'
 
                 }
 
