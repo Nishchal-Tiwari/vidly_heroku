@@ -39,13 +39,13 @@
 
     <script>
         window.onload = () => {
-            fetch('http://delta-xpr-app.herokuapp.com/login/if', {
+            fetch('https://delta-xpr-app.herokuapp.com/login/if', {
                 credentials: "include"
             }).then(s => s.text()).then(
                 res => {
                     if (res == "logged") {
                         console.log(res)
-                        window.location.replace('http://10.61.74.57:5500/lr/')
+                        window.location.replace('https://delta-xpr-app.herokuapp.com/sayhi')
                     }
 
                 }
