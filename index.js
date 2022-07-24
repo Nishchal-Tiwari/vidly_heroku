@@ -9,6 +9,7 @@ const con_to_db = require('./db_connect')
 const ip = require("ip");
 const session = require('express-session')
 const vid_submit = require('./submit_video')
+const watch = require('./watch')
 
 
 //middleware
@@ -22,6 +23,7 @@ app.use(session({ key: "uid", secret: "0xC345$%^&ewfwfwaae#$%^&*SDFGHJKNBVCFDRGT
 app.use('/uv', vid_submit)
 app.use('/register', register)
 app.use('/login', login)
+app.use('/watch', watch)
 
 
 

@@ -1,11 +1,25 @@
 const express = require('express');
 const Router = express.Router();
-const vid = require('./video_schema')
-
+const vid = require('./vid_schema')
+const getuser = require('./get_user')
 Router.route('/').get(async(req, res) => {
-    const data = await vid.find();
-    res.setHeader('Content-Type', 'application/json');
-    res.send({ data })
+
+    if (req.session.uid) {
+        const user = getuser(req.session.id);
+        const data = await vid.find({ $or: [{ id: user }, { is_public: true }] });
+
+        data = await data.json()
+
+
+
+
+
+        res.setHeader('Content-Type', 'application/json');
+        res.send({ data })
+
+    } else {
+        res.send("relogin")
+    }
 
 
 
@@ -15,10 +29,7 @@ Router.route('/').get(async(req, res) => {
 
 
 
-    // res.setHeader('Content-Type', 'text/html');
-    // res.send(
-    //     '<video src="http://127.0.0.1:3000/stream?v='+data[0].path+'" controls mute width="500px" height="300px"></video>'
-    // )
+
 
 
 })
