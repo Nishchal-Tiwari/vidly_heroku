@@ -8,7 +8,7 @@ const db_connect = require('./db_connect');
 const con_to_db = require('./db_connect')
 const ip = require("ip");
 const session = require('express-session')
-
+const vid_submit = require('./submit_video')
 
 
 //middleware
@@ -19,7 +19,7 @@ app.use(express.json())
 console.log(ip.address());
 app.use(session({ key: "uid", secret: "0xC345$%^&ewfwfwaae#$%^&*SDFGHJKNBVCFDRGTHJM", resave: false, saveUninitialized: true, }))
 
-
+app.use('/uv', vid_submit)
 app.use('/register', register)
 app.use('/login', login)
 

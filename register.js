@@ -3,7 +3,7 @@ const Router = express.Router();
 const table = require('./register_schema')
 const hasher = require('bcrypt')
 const mailer = require('./mailer')
-Router.route('/').post(
+Router.route('/').post( 
     async(req, res) => {
         console.log(req.body)
         const x = Math.floor((Math.random() * 1000000) + 1);
