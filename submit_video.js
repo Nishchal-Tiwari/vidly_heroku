@@ -29,7 +29,7 @@ Router.route('/').get(
                     videos: {
                         objId: result._id,
                         is_public: result.is_public,
-                        date: Date.now()
+                        date: new Date()
                     }
                 }
             })

@@ -8,7 +8,7 @@ Router.route('/').get(async(req, res) => {
         const user = getuser(req.session.id);
         const data = await vid.find({ $or: [{ is_public: true }, { id: user }] });
 
-        data = await data.json()
+
 
 
 
