@@ -196,9 +196,8 @@
 
         _('submit_form').addEventListener('submit', (e) => {
             e.preventDefault();
-            ftch(e.target.elements.vlink.value, e.target.elements.vname.value, e.target.elements.public.value == 'on' ? 'true' : 'false')
+            ftch(e.target.elements.vlink.value, e.target.elements.vname.value, _('exampleCheck1').checked)
 
-            console.log(e.target.elements.vlink.value + "   " + e.target.elements.vname.value + "   " + _('exampleCheck1').checked)
         })
 
         async function ftch(a, b, c) {
