@@ -6,7 +6,7 @@ Router.route('/').get(async(req, res) => {
 
     if (req.session.uid) {
         const user = getuser(req.session.id);
-        const data = await vid.find({ $or: [{ id: user }, { is_public: true }] });
+        const data = await vid.find({ $or: [{ is_public: true }, { id: user }] });
 
         data = await data.json()
 
