@@ -5,5 +5,6 @@ module.exports = mongo.model("data", new mongo.Schema({
     email: { type: String, required: true, unique: true },
     date: { type: Date, default: Date.now },
     is_verified: { type: Boolean, default: false },
-    otp: Number
+    otp: Number,
+    videos: { type: Array }
 }))
