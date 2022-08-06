@@ -100,11 +100,17 @@
                     ele.innerText = "Wrong password ! Please try again."
                     ele.innerHTML += '<a href="https://delta-xpr-app.herokuapp.com"><button>Try again</button></a>'
 
-                } else {
+                } else if (s == "sucess") {
                     formm.style.display = 'none'
 
                     ele.innerText = "User does not exist ! Register"
                     ele.innerHTML += '<a href="https://delta-xpr-app.herokuapp.com/register.html"><button>Register</button></a>'
+
+                } else {
+                    formm.style.display = 'none'
+
+                    ele.innerText = "Mail not verified ! verify your mail first."
+
 
                 }
 
